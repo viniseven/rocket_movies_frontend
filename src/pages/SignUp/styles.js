@@ -33,7 +33,7 @@ export const Form = styled.div`
    }
 
    button {
-        margin-bottom: 4.2rem;
+        margin: 2.4rem 0 4.2rem;
    }
 `;
 
