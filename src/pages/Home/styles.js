@@ -7,6 +7,9 @@ export const Container = styled.div`
 
 export const Content = styled.div`
     
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
 
     margin: 5rem 12rem 0;
 
@@ -18,5 +21,11 @@ export const Content = styled.div`
         button {
             width: 20.7rem;
         }
+    }
+
+    .content-data {
+        display: flex;
+        flex-direction: column;
+        gap: 2.4rem;
     }
 `;
