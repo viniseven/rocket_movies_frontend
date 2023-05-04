@@ -34,8 +34,22 @@ export const Profile = styled.div`
     }
 
     > div {
+        display: flex;
+        flex-direction: column;
+
         width: 12.5rem;
+        
         line-height: 2.4rem;
+
+        text-align: right;
+
+        span:first-child{
+            color: ${({ theme }) => theme.COLORS.GRAY_200};
+        }
+
+        button {
+           text-align: right;
+        }
     }
 `;
 

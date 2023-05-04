@@ -14,6 +14,7 @@ export function Header(){
 
             <Profile>
                 <div>
+                    <span>Bem vindo, </span>
                     <span>Marcus Vinícius</span>
                     <ButtonText title="sair" />
                 </div>
