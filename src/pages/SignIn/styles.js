@@ -31,6 +31,10 @@ export const Form = styled.div`
    > h2{
     margin-bottom: 4.2rem;
    }
+
+   button {
+        margin-bottom: 4.2rem;
+   }
 `;
 
 export const Background = styled.div`
