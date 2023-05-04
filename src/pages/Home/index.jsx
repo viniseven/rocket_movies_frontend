@@ -4,6 +4,7 @@ import { Header } from '../../Components/Header'
 import { Button } from '../../Components/Button'
 import { Card } from '../../Components/Card';
 import { Rating } from '../../Components/Rating';
+import { Tag } from '../../Components/Tag';
 
 import { FiPlus } from 'react-icons/fi';
 
@@ -37,6 +38,11 @@ export function Home(){
                      que consigam revertar a situação. Porém, para tanto, eles terão que assumir por completo a vida 
                      do outro.
                     </p>
+
+                    <div className='content-tags'>
+                        <Tag title="comédia"/>
+                        <Tag title="nacional"/>
+                    </div>
     
                 </Card>
 

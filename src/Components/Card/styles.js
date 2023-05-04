@@ -7,6 +7,8 @@ export const Container = styled.div`
 
     padding: 3.2rem;
 
+    transition: 1s;
+
     > h2 {
         color: ${({ theme }) => theme.COLORS.WHITE};
         font-size: 2.4rem;
@@ -17,5 +19,11 @@ export const Container = styled.div`
     > p {
         margin-top: 1.5rem;
         color: ${({ theme }) => theme.COLORS.GRAY_300};
+    }
+
+    &:hover {
+        cursor: pointer;
+        scale: 1.1;
+        
     }
 `;

@@ -28,4 +28,11 @@ export const Content = styled.div`
         flex-direction: column;
         gap: 2.4rem;
     }
+
+    .content-tags {
+        display: flex;
+        gap: 8px;
+
+        margin-top: 1.5rem;
+    }
 `;
