@@ -21,9 +21,4 @@ export const Container = styled.div`
         color: ${({ theme }) => theme.COLORS.GRAY_300};
     }
 
-    &:hover {
-        cursor: pointer;
-        scale: 1.1;
-        
-    }
 `;

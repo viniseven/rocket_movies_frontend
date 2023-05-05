@@ -1,17 +1,26 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    width: 100%;
-    height: 100vh;
+    max-width: 1360px;
+    
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+    "header"
+    "content";
 `;
 
 export const Content = styled.div`
-    
+
+    grid-area: content;
+
     display: flex;
     flex-direction: column;
     gap: 4rem;
 
-    margin: 5rem 12rem 0;
+    padding: 5rem 12rem;
 
     > div {
         display: flex;
@@ -27,6 +36,10 @@ export const Content = styled.div`
         display: flex;
         flex-direction: column;
         gap: 2.4rem;
+
+        overflow-y: auto;
+        overflow-x: hidden;
+
     }
 
     .content-tags {
