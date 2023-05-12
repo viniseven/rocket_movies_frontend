@@ -34,4 +34,17 @@ export const Form = styled.form`
 
         margin-top: 4rem;
     }
+
+    .group-market{
+        display: flex;
+        gap: 2.4rem;
+
+        background-color: ${({ theme, isNew }) => isNew ? "transparent" : theme.COLORS.BACKGROUND_900};
+    }
+
+    .button-footer button:first-child{
+        background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
+
+        color: ${({ theme }) => theme.COLORS.PINK};
+    }
 `;
