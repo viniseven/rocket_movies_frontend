@@ -35,6 +35,10 @@ export const Form = styled.div`
    button {
         margin: 2.4rem 0 4.2rem;
    }
+
+   > svg {
+    color: ${({ theme }) => theme.COLORS.PINK};
+   }
 `;
 
 export const Background = styled.div`

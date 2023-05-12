@@ -1,5 +1,7 @@
 import { Container, Form } from "./styles"
 
+import { FiArrowLeft } from 'react-icons/fi';
+
 import { Header } from "../../Components/Header";
 import { ButtonText } from "../../Components/ButtonText";
 import { Button } from "../../Components/Button";
@@ -14,7 +16,7 @@ export function CreateNote(){
             <Header />
 
             <main>
-                <ButtonText title="Voltar" />
+                <ButtonText title="Voltar"  icon={FiArrowLeft} />
 
                 <Form>
                     <h1>Novo filme</h1>

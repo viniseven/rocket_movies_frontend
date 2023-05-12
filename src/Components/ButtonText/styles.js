@@ -4,10 +4,12 @@ export const Container = styled.button`
     background: none;
     color: ${({ theme }) => theme.COLORS.PINK};
 
-    border: 0;
+    border: none;
     
-    font-size: 1.6rem; 
-    > svg {
-        color: ${({ theme }) => theme.COLORS.PINK};
-    }
+    font-size: 1.6rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 `;
