@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+    max-width: 1360px;
+
+    margin: 0 auto;
+     
      display: grid;
      grid-template-rows: 1fr;
      grid-template-areas: 
@@ -19,6 +23,11 @@ export const Container = styled.div`
             gap: 1.9rem;
 
             margin: 2.4rem 0;
+        }
+
+        p {
+            text-align: justify;
+            margin-top: 4.0rem;
         }
     }
 
@@ -41,4 +50,13 @@ export const Container = styled.div`
             color: ${({ theme }) => theme.COLORS.PINK};
             }   
     }
+
+    .data-market {
+        display: flex;
+        gap: 8px;
+
+        margin-top: 4.8rem;
+    }
+
+
 `;

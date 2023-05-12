@@ -8,7 +8,7 @@ import { Button } from "../../Components/Button";
 import { Input } from "../../Components/Input";
 import { TextArea } from "../../Components/TextArea";
 import { Section } from "../../Components/Section";
-import { Market } from "../../Components/Market";
+import { InputMarket } from "../../Components/InputMarket";
 
 export function CreateNote(){
     return (
@@ -39,13 +39,13 @@ export function CreateNote(){
 
                     <Section title="Marcadores">
                         <div className="group-market">
-                            <Market
+                            <InputMarket
                                 value="comédia" 
                                 placeholder="Novo marcador"
                                 isNew={false}
                             />
 
-                            <Market 
+                            <InputMarket 
                                 placeholder="Novo marcador"
                                 isNew={true}
                             />
