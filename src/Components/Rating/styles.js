@@ -7,8 +7,8 @@ export const Container = styled.div`
     gap: 6px;
   
     > svg {
-        width: 1.4rem;
-        height: 1.4rem;
+        width: 2rem;
+        height: 2rem;
 
         color: ${({ theme }) => theme.COLORS.PINK};
     }
