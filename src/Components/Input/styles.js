@@ -14,12 +14,12 @@ export const Container = styled.div`
     border-radius: 10px;
 
     > input {
-        width: 100%;
+        width: fit-content;
         height: 5.6rem;
 
         padding-left: 2rem;
 
-        border: 0;
+        border: none;
 
         outline: none;
         

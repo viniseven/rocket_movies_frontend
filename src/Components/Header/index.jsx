@@ -1,6 +1,8 @@
 import { Container, Profile } from "./styles"
+
 import { Input } from '../Input'
 import { ButtonText } from "../ButtonText"
+import { Link } from "react-router-dom"
 
 export function Header(){
     return (
@@ -11,16 +13,18 @@ export function Header(){
                 placeholder="Pesquisar pelo título"
                 type="text"
             />
+                <div className="data-profile">
+                    <Profile to="/profile">
+                        <span>Marcus Vinícius</span>
+                        <img src="https://github.com/viniseven.png" 
+                            alt="Imagem de perfil do usuário" 
+                        />
+                    </Profile>
 
-            <Profile>
-                <div>
-                    <span>Bem vindo, </span>
-                    <span>Marcus Vinícius</span>
-                    <ButtonText title="sair" />
+                    <Link to="/">
+                        <ButtonText title="sair" />
+                    </Link>
                 </div>
-
-                <img src="https://github.com/viniseven.png" alt="Imagem de perfil do usuário" />
-            </Profile>
         </Container>
     )
 }

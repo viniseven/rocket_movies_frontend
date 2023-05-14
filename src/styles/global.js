@@ -23,6 +23,10 @@ export default createGlobalStyle`
 
     }
 
+    a {
+        text-decoration: none;
+    }
+
     button {
         cursor: pointer;
     }

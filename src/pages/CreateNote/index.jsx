@@ -1,5 +1,7 @@
 import { Container, Form } from "./styles"
 
+import { Link } from 'react-router-dom';
+
 import { FiArrowLeft } from 'react-icons/fi';
 
 import { Header } from "../../Components/Header";
@@ -16,8 +18,10 @@ export function CreateNote(){
             <Header />
 
             <main>
-                <ButtonText title="Voltar"  icon={FiArrowLeft} />
-
+                <Link to="/">
+                    <ButtonText title="Voltar"  icon={FiArrowLeft} />
+                </Link>
+                
                 <Form>
                     <h1>Novo filme</h1>
 

@@ -36,8 +36,20 @@ export const Form = styled.form`
         margin: 2.4rem 0 4.2rem;
    }
 
-   > svg {
+   > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
     color: ${({ theme }) => theme.COLORS.PINK};
+
+    svg {
+    width: 2rem;
+    height: 2rem;
+
+    color: ${({ theme }) => theme.COLORS.PINK};
+   }
    }
 `;
 
