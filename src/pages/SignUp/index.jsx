@@ -1,31 +1,37 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom';
 
-import { api } from '../../services/api';
+
+import { Input } from "../../Components/Input";
+import { Button } from "../../Components/Button";
 
 import { Container, Background, Form } from "./styles";
 
 import { FiMail, FiLock, FiUser, FiArrowLeft } from 'react-icons/fi';
 
-import { Input } from "../../Components/Input";
-import { Button } from "../../Components/Button";
+
+import { api } from '../../services/api';
 
 export function SignUp(){
   const [name, setName] = useState("");
-  const [surname, setSurname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigate = useNavigate();
+
   function handleSignUp(){
-    if(!name || !surname || !email || !password){
+    if(!name || !email || !password){
       return alert('Preencha todos os campos')
     }
     if(password.length < 8){
       return alert('Insira uma senha de no mínimo 8 caracteres')
     }
 
-    api.post("/users", { name, surname, email, password})
+    api.post("/users", {name, email, password})
       .then(() => alert('Usuário cadastrado com sucesso'))
+      navigate("/")
+
       .catch(error => {
         if(error.response){
           alert(error.response.data.message);
@@ -48,13 +54,6 @@ export function SignUp(){
           type="text"
           icon={FiUser}
           onChange={e => setName(e.target.value)}
-         />
-
-         <Input
-          placeholder="Sobrenome"
-          type="text"
-          icon={FiUser}
-          onChange={e => setSurname(e.target.value)}
          />
 
          <Input
