@@ -21,13 +21,6 @@ export const Container = styled.div`
         color: ${({ theme }) => theme.COLORS.PINK};
         font-size: 2.4rem;
     }
-
-     .data-profile {
-       display: flex;
-       flex-direction: column;
-       justify-content: right;
-    }
-
 `;
 
 export const Profile = styled(Link)`
@@ -38,8 +31,14 @@ export const Profile = styled(Link)`
     align-items: center;
     gap: 9px;
 
-    text-align: right;
- 
+    > div {
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        
+        width: max-content;
+    }
+    
         span {
             color: ${({ theme }) => theme.COLORS.WHITE};
         }

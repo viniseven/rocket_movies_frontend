@@ -36,25 +36,26 @@ export function Header(props){
 
     return (
         <Container>
-            <h1>RocketMovies</h1>
-
+                <h1>RocketMovies</h1>
+                
             <Input
                 placeholder="Pesquisar pelo título"
                 type="text"
                 onChange={handleValueInput}
             />
-                <div className="data-profile">
                     <Profile to="/profile">
-                        <span>{user.name}</span>
+                        <div>
+                            <span>{user.name}</span>
+                            <Link to="/">
+                                <ButtonText title="sair" onClick={handleUserSignOut}/>
+                            </Link>
+                        </div>
+
                         <img src={avatarUrl}
                             alt="Imagem de perfil do usuário" 
                         />
-                    </Profile>
-
-                    <Link to="/">
-                        <ButtonText title="sair" onClick={handleUserSignOut}/>
-                    </Link>
-                </div>
+                        
+                    </Profile>            
         </Container>
     )
 }
