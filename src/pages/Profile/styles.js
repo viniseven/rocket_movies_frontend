@@ -71,4 +71,8 @@ export const Avatar = styled.div`
             color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
         }
     }
+
+    input {
+        display: none;
+    }
 `;

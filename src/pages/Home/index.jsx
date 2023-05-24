@@ -9,11 +9,38 @@ import { Rating } from '../../Components/Rating';
 import { Tag } from '../../Components/Tag';
 
 import { FiPlus } from 'react-icons/fi';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'
+
+import { api } from '../../services/api';
 
 export function Home(){
+    const [searchMovie, setSearchMovie] = useState("")
+    const [movies, setMovies] = useState([])
+
+    const dataValueInputSearch = (valueSearch) => {
+        setSearchMovie(valueSearch)
+    }
+
+    useEffect(() => {
+        async function fetchMovieNotes(){
+            const response = await api.get(`/notes?title=${searchMovie}`)
+            const { notesWithTags } = response.data
+            setMovies(notesWithTags)
+        }
+        fetchMovieNotes()
+
+    },[searchMovie])
+
+    const navigate = useNavigate();
+
+    function handleCreateNewMovie(){
+        navigate("/new")
+    }
+
     return (
         <Container>
-            <Header />
+            <Header valueInput={dataValueInputSearch}/>
 
             <Content>
                 <div>
@@ -23,71 +50,30 @@ export function Home(){
                         <Button 
                             icon={FiPlus}
                             title="Adicionar filme"
+                            onClick={handleCreateNewMovie}
                         />
                     </Link>
                 </div>
 
                 <div className='content-data'>
-                    <Card 
-                        title="Se eu fosse você"
-                    >
-                        <Rating rating={3} />
+                    {
+                        movies.map(movie =>( 
 
-                        <p>
-                            Em Se Eu Fosse Você, Cláudio (Tony Ramos) é um publicitário bem sucedido, dono de sua própria agência,
-                            e é casado com Helena (Glória Pires), uma professora de música que cuida de um coral infantil. 
-                            Acostumados com a rotina do dia-a-dia e do casamento de tantos anos, eles volta e meia têm uma 
-                            discussão. Um dia eles têm uma briga maior do que o normal, que faz com que algo inexplicável 
-                            aconteça: eles trocam de corpos. Apavorados, Cláudio e Helena tentam aparentar normalidade até 
-                            que consigam revertar a situação. Porém, para tanto, eles terão que assumir por completo a vida 
-                            do outro.
-                        </p>
+                    <Card
+                        key={String(movie.id)}
+                        title={movie.title}
+                    >
+                        <Rating rating={movie.rating} />
+
+                        <p>{movie.description}</p>
 
                         <div className='content-tags'>
                             <Tag title="comédia"/>
                             <Tag title="nacional"/>
                         </div>
-    
                     </Card>
-
-                    <Card 
-                        title="Se eu fosse você"
-                    >
-                        <Rating rating={3} />
-
-                        <p>
-                            Em Se Eu Fosse Você, Cláudio (Tony Ramos) é um publicitário bem sucedido, dono de sua própria agência,
-                            e é casado com Helena (Glória Pires), uma professora de música que cuida de um coral infantil. 
-                            Acostumados com a rotina do dia-a-dia e do casamento de tantos anos, eles volta e meia têm uma 
-                            discussão. Um dia eles têm uma briga maior do que o normal, que faz com que algo inexplicável 
-                            aconteça: eles trocam de corpos. Apavorados, Cláudio e Helena tentam aparentar normalidade até 
-                            que consigam revertar a situação. Porém, para tanto, eles terão que assumir por completo a vida 
-                            do outro.
-                        </p>
-    
-                    </Card>
-
-                    <Card 
-                        title="Se eu fosse você"
-                    >
-                        <Rating rating={3} />
-
-                        <p>
-                            Em Se Eu Fosse Você, Cláudio (Tony Ramos) é um publicitário bem sucedido, dono de sua própria agência,
-                            e é casado com Helena (Glória Pires), uma professora de música que cuida de um coral infantil. 
-                            Acostumados com a rotina do dia-a-dia e do casamento de tantos anos, eles volta e meia têm uma 
-                            discussão. Um dia eles têm uma briga maior do que o normal, que faz com que algo inexplicável 
-                            aconteça: eles trocam de corpos. Apavorados, Cláudio e Helena tentam aparentar normalidade até 
-                            que consigam revertar a situação. Porém, para tanto, eles terão que assumir por completo a vida 
-                            do outro.
-                        </p>
-
-                        <div className='content-tags'>
-                            <Tag title="comédia"/>
-                            <Tag title="nacional"/>
-                        </div>
-    
-                    </Card>
+                        ))
+                    }
                 </div> 
             </Content>
         </Container>

@@ -36,7 +36,9 @@ export const Form = styled.form`
     }
 
     .group-market{
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 250px);
+        width: auto;
         gap: 2.4rem;
 
         background-color: ${({ theme, isNew }) => isNew ? "transparent" : theme.COLORS.BACKGROUND_900};

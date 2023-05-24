@@ -4,7 +4,7 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
 
-    width: auto;
+    width: fit-content;
 
     background-color: ${({ theme, isNew }) => isNew ? "transparent" : theme.COLORS.BACKGROUND_700};
 
@@ -20,6 +20,9 @@ export const Container = styled.div`
        color: ${({ theme }) => theme.COLORS.WHITE};
 
        pointer-events: ${({ isNew }) => isNew ? "auto" : "none"};
+       :focus{
+        outline: 0
+       }
     }
 
     > button {
