@@ -97,8 +97,6 @@ export function CreateNote() {
           </Section>
 
           <div className="button-footer">
-            <Button title="Excluir filme" />
-
             <Button title="Salvar" onClick={handleNewMovie} />
           </div>
         </Form>

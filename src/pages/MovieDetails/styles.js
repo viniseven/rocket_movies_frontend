@@ -22,7 +22,12 @@ export const Container = styled.div`
             align-items: center;
             gap: 1.9rem;
 
-            margin: 2.4rem 0;
+            margin: 0 auto;
+
+            Button {
+               width: 20.7rem;
+               margin-left: auto;
+            }
         }
 
         p {
@@ -57,6 +62,4 @@ export const Container = styled.div`
 
         margin-top: 4.8rem;
     }
-
-
 `;

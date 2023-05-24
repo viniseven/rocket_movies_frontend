@@ -44,7 +44,10 @@ export const Form = styled.form`
         background-color: ${({ theme, isNew }) => isNew ? "transparent" : theme.COLORS.BACKGROUND_900};
     }
 
-    .button-footer button:first-child{
+    .button-footer {
+        margin: 4rem auto;
+        width: 50%;
+        
         background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
 
         color: ${({ theme }) => theme.COLORS.PINK};

@@ -1,5 +1,6 @@
 /* eslint-disable react/react-in-jsx-scope */
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { FiArrowLeft, FiClock } from 'react-icons/fi';
 import { Link, useParams } from 'react-router-dom';
@@ -13,6 +14,7 @@ import { Tag } from '../../Components/Tag';
 import { useAuth } from '../../hooks/auth';
 
 import { api } from '../../services/api';
+import { Button } from '../../Components/Button';
 
 export function MovieDetails() {
   const { user } = useAuth();
@@ -20,8 +22,22 @@ export function MovieDetails() {
   const [data, setData] = useState('');
 
   const params = useParams();
+  const navigate = useNavigate();
 
   const avatarUrl = `${api.defaults.baseURL}/files/${user.avatar}`;
+
+  async function handleDeleteMovie() {
+    await api
+      .delete(`/notes/${params.id}`)
+      .then(() => alert('Nota excluída com sucesso'));
+    navigate('/').catch((error) => {
+      if (error.response) {
+        alert(error.response.data.message);
+      } else {
+        alert('Não foi possível excluir');
+      }
+    });
+  }
 
   useEffect(() => {
     async function fetchMovieDetails() {
@@ -44,6 +60,7 @@ export function MovieDetails() {
           <header>
             <h1>{data.title}</h1>
             <Rating rating={data.rating} />
+            <Button title="Excluir" onClick={handleDeleteMovie} />
           </header>
 
           <div className="data-user">
