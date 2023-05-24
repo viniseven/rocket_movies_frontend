@@ -9,6 +9,12 @@ export const Container = styled.div`
 
     transition: 1s;
 
+    cursor: pointer;
+
+    :hover{
+        background-color: ${({ theme }) => theme.COLORS.PINK_OPACITY_100};
+    }
+
     > h2 {
         color: ${({ theme }) => theme.COLORS.WHITE};
         font-size: 2.4rem;

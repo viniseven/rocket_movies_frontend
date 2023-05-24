@@ -4,7 +4,6 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
 
-
     h2 {
         font-size: 2rem;
         color: ${({ theme }) => theme.COLORS.GRAY_300};
