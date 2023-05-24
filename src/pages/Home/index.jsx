@@ -2,8 +2,8 @@ import { Container, Content } from './styles'
 
 import { Link } from 'react-router-dom';
 
-import { Header } from '../../Components/Header'
-import { Button } from '../../Components/Button'
+import { Header } from '../../Components/Header';
+import { Button } from '../../Components/Button';
 import { Card } from '../../Components/Card';
 import { Rating } from '../../Components/Rating';
 import { Tag } from '../../Components/Tag';
@@ -22,21 +22,20 @@ export function Home(){
         setSearchMovie(valueSearch)
     }
 
-    useEffect(() => {
-        async function fetchMovieNotes(){
-            const response = await api.get(`/notes?title=${searchMovie}`)
-            const { notesWithTags } = response.data
-            setMovies(notesWithTags)
-        }
-        fetchMovieNotes()
-
-    },[searchMovie])
-
     const navigate = useNavigate();
 
     function handleCreateNewMovie(){
         navigate("/new")
     }
+
+    useEffect(() => {
+        async function fetchMovieNotes(){
+            const response = await api.get(`/notes?title=${searchMovie}`)
+            setMovies(response.data.notesWithTags)
+        }
+        fetchMovieNotes()
+
+    },[, searchMovie])
 
     return (
         <Container>
@@ -68,8 +67,14 @@ export function Home(){
                         <p>{movie.description}</p>
 
                         <div className='content-tags'>
-                            <Tag title="comédia"/>
-                            <Tag title="nacional"/>
+                            {
+                                movie.tags.map(tag => (
+                                    <Tag
+                                    key={tag.id} 
+                                    title={tag.name}
+                                    />
+                                ))
+                            }
                         </div>
                     </Card>
                         ))
